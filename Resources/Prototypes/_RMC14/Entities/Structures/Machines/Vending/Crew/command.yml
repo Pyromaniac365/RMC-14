@@ -763,20 +763,32 @@
       - id: CMJumpsuitBO
       - id: CMJumpsuitOperations
       - id: RMCVendorBundleXOFormal
-    - name: Personal Weapon
+    - name: Personal Weapon Belts
       jobs:
       - CMExecutiveOfficer
       choices: { CMWeapon: 1 }
       entries:
-      - id: RMCMK80BeltFilled
-        name: MK80 pistol
-        recommended: true
-      - id: RMCM1984BeltFilled
-        name: M1984 service pistol
-      - id: RMCM77BeltFilled
-        name: M77 pistol
-      - id: RMCM44BeltFilled
-        name: M44 revolver
+      - id: RMCBeltHolsterPistol
+        name: M276 pattern general pistol holster rig
+      - id: RMCBeltHolsterRevolver
+        name: M276 pattern general revolver holster rig
+    - name: Ammunition
+      jobs:
+      - CMExecutiveOfficer
+      choices: { CMAmmo: 1 }
+      entries:
+      - id: CMMagazinePistolMK80
+        name: MK80 magazine (9mm Squash-Head) (x6)
+        spawn: 6
+      - id: CMMagazinePistolM1984
+        name: M1984 magazine (9mm) (x6)
+        spawn: 6
+      - id: CMMagazinePistolM77AP
+        name: M77 AP magazine (9mm) (x6)
+        spawn: 6
+      - id: RMCSpeedLoaderM44
+        name: M44 Speedloader (.44) (x6)
+        spawn: 6
     - name: Belt
       jobs:
       - CMExecutiveOfficer

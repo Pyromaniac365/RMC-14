@@ -1,0 +1,185 @@
+- type: entity
+  parent: [RMCBaseSlideMagazineVisuals, CMWeaponPistolBase]
+  id: CMWeaponPistolSilverM1984
+  name: silver M1984 service pistol
+  description: An M1984 Service Pistol, once the standard issue sidearm of the UNMC but has recently been replaced with the M77 combat pistol. Fires 9mm pistol rounds.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+    - CMWeaponPistolM1984
+  - type: RMCSelectiveFire
+    scatterWielded: 10
+    scatterUnwielded: 10
+    baseFireRate: 10
+    burstScatterMult: 5
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1984silver.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1984silver.rsi
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_mk80_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_88m4_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - CMMagazinePistolM1984
+          - RMCMagazinePistolM1984AP
+          - RMCMagazinePistolM1984Rubber
+        startingItem: CMMagazinePistolM1984
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBarrelCharger
+          - RMCAttachmentExtendedBarrel
+          - RMCAttachmentRecoilCompensator
+          - RMCAttachmentSuppressor
+          - RMCAttachmentSuppressorCompact
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS5RedDotSight
+          - RMCAttachmentS5MicroRedDotSight
+          - RMCAttachmentS6ReflexSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBurstFireAssembly
+          - RMCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.71, 0.095
+      rmc-aslot-rail: -0.065, 0.125
+      rmc-aslot-underbarrel: 0.312, -0.25
+
+- type: entity
+  parent: [RMCBaseSlideMagazineVisuals, CMWeaponPistolBase]
+  id: CMWeaponPistolGoldenM1984
+  name: golden M1984 service pistol
+  description: An M1984 Service Pistol, once the standard issue sidearm of the UNMC but has recently been replaced with the M77 combat pistol. Fires 9mm pistol rounds.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+    - CMWeaponPistolM1984
+  - type: RMCSelectiveFire
+    scatterWielded: 10
+    scatterUnwielded: 10
+    baseFireRate: 10
+    burstScatterMult: 5
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1984golden.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1984golden.rsi
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_mk80_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_88m4_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - CMMagazinePistolM1984
+          - RMCMagazinePistolM1984AP
+          - RMCMagazinePistolM1984Rubber
+        startingItem: CMMagazinePistolM1984
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBarrelCharger
+          - RMCAttachmentExtendedBarrel
+          - RMCAttachmentRecoilCompensator
+          - RMCAttachmentSuppressor
+          - RMCAttachmentSuppressorCompact
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS5RedDotSight
+          - RMCAttachmentS5MicroRedDotSight
+          - RMCAttachmentS6ReflexSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBurstFireAssembly
+          - RMCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.71, 0.095
+      rmc-aslot-rail: -0.065, 0.125
+      rmc-aslot-underbarrel: 0.312, -0.25
+      
+- type: entity
+  parent: [RMCBaseSlideMagazineVisuals, CMWeaponPistolBase]
+  id: CMWeaponPistolPlatinumM1984
+  name: platinum M1984 service pistol
+  description: An M1984 Service Pistol, once the standard issue sidearm of the UNMC but has recently been replaced with the M77 combat pistol. Fires 9mm pistol rounds.
+  components:
+  - type: Tag
+    tags:
+    - Sidearm
+    - CMWeaponPistolM1984
+  - type: RMCSelectiveFire
+    scatterWielded: 10
+    scatterUnwielded: 10
+    baseFireRate: 10
+    burstScatterMult: 5
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1984platinum.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/Pistols/m1984platinum.rsi
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_mk80_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_88m4_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - CMMagazinePistolM1984
+          - RMCMagazinePistolM1984AP
+          - RMCMagazinePistolM1984Rubber
+        startingItem: CMMagazinePistolM1984
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBarrelCharger
+          - RMCAttachmentExtendedBarrel
+          - RMCAttachmentRecoilCompensator
+          - RMCAttachmentSuppressor
+          - RMCAttachmentSuppressorCompact
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS5RedDotSight
+          - RMCAttachmentS5MicroRedDotSight
+          - RMCAttachmentS6ReflexSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentBurstFireAssembly
+          - RMCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.71, 0.095
+      rmc-aslot-rail: -0.065, 0.125
+      rmc-aslot-underbarrel: 0.312, -0.25

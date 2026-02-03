@@ -572,6 +572,28 @@
   - GoldMatebaRMC
   - GoldHandcannonRMC
 
+#Executive Officer
+- type: loadoutGroup
+  id: ExecutiveOfficerWeaponRMC
+  name: Executive Officer (Sidearm)
+  loadouts:
+  - Mk80RMC
+  - SilverMk80RMC
+  - GoldMk80RMC
+  - PlatinumMk80RMC
+  - M1984RMC
+  - SilverM1984RMC
+  - GoldM1984RMC
+  - PlatinumM1984RMC
+  - M77RMC
+  - SilverM77RMC
+  - GoldM77RMC
+  - PlatinumM77RMC
+  - M44RMC
+  - SilverM44RMC
+  - GoldM44RMC
+  - PlatinumM44RMC
+
 # Corporate Liaison
 - type: loadoutGroup
   id: LiaisonRoleSpecificRMC

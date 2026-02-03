@@ -1,0 +1,196 @@
+# Executive Officer
+#Mk80
+- type: loadout
+  id: Mk80RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 0 # 0 hrs
+  storage:
+    back:
+    - RMCMK80
+    
+- type: loadout
+  id: SilverMk80RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 270000 # 75 hrs
+  storage:
+    back:
+    - RMCMK80Silver
+
+- type: loadout
+  id: GoldMk80RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 630000 # 175 hrs
+  storage:
+    back:
+    - RMCMK80Golden
+
+- type: loadout
+  id: PlatinumMk80RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 900000 # 250 hrs
+  storage:
+    back:
+    - RMCMK80Platinum
+
+#M1984
+- type: loadout
+  id: M1984RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 0 # 0 hrs
+  storage:
+    back:
+    - CMWeaponPistolM1984
+
+- type: loadout
+  id: SilverM1984RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 270000 # 75 hrs
+  storage:
+    back:
+    - CMWeaponPistolSilverM1984
+
+- type: loadout
+  id: GoldM1984RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 630000 # 175 hrs
+  storage:
+    back:
+    - CMWeaponPistolGoldenM1984
+
+- type: loadout
+  id: PlatinumM1984RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 900000 # 250 hrs
+  storage:
+    back:
+    - CMWeaponPistolPlatinumM1984
+    
+#M77
+- type: loadout
+  id: M77RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 0 # 0 hrs
+  storage:
+    back:
+    - RMCWeaponPistolM77
+
+- type: loadout
+  id: SilverM77RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 270000 # 75 hrs
+  storage:
+    back:
+    - RMCWeaponPistolSilverM77
+
+- type: loadout
+  id: GoldM77RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 630000 # 175 hrs
+  storage:
+    back:
+    - RMCWeaponPistolGoldenM77
+
+- type: loadout
+  id: PlatinumM77RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 900000 # 250 hrs
+  storage:
+    back:
+    - RMCWeaponPistolPlatinumM77
+    
+#M44
+- type: loadout
+  id: M44RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 0 # 0 hrs
+  storage:
+    back:
+    - RMCWeaponRevolverM44
+
+- type: loadout
+  id: SilverM44RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 270000 # 75 hrs
+  storage:
+    back:
+    - RMCWeaponRevolverSilverM44
+
+- type: loadout
+  id: GoldM44RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 630000 # 175 hrs
+  storage:
+    back:
+    - RMCWeaponRevolverGoldenM44
+
+- type: loadout
+  id: PlatinumM44RMC
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: CMJobExecutiveOfficer
+      time: 900000 # 250 hrs
+  storage:
+    back:
+    - RMCWeaponRevolverPlatinumM44

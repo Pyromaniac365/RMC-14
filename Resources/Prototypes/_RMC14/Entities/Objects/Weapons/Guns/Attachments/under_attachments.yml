@@ -818,6 +818,126 @@
         unwieldedOnly: true
       scatterFlat: -4
 
+- type: entity
+  parent: RMCAttachmentFlashlightGrip
+  id: RMCAttachmentGoldenLaserLightModule
+  name: MK80 Golden laser-light module
+  description: A Laser-Light module for the MK80 Service Pistol which is currently undergoing limited field testing as part of the marines' next generation pistol program. All MK80 pistols come equipped with the module.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80golden.rsi
+    layers:
+    - state: laserlight
+    - state: laserlight-on
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: Tag
+    tags:
+    - RMCAttachmentUnderbarrel
+    - RMCAttachmentLaserLightModule
+    - Flashlight
+  - type: AttachableToggleable
+    icon:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80golden.rsi
+      state: laserlight
+    iconActive:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80golden.rsi
+      state: laserlight-on
+    actionName: Activate Laser-Light Module
+    actionDesc: Can be toggled on and off. A better light source than standard M3 pattern armor lights.
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: 0.05
+    - conditions:
+        wieldedOnly: true
+      recoilFlat: -1
+      scatterFlat: -2
+    - conditions:
+        unwieldedOnly: true
+      scatterFlat: -4
+      
+- type: entity
+  parent: RMCAttachmentFlashlightGrip
+  id: RMCAttachmentSilverLaserLightModule
+  name: MK80 Silver laser-light module
+  description: A Laser-Light module for the MK80 Service Pistol which is currently undergoing limited field testing as part of the marines' next generation pistol program. All MK80 pistols come equipped with the module.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80silver.rsi
+    layers:
+    - state: laserlight
+    - state: laserlight-on
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: Tag
+    tags:
+    - RMCAttachmentUnderbarrel
+    - RMCAttachmentLaserLightModule
+    - Flashlight
+  - type: AttachableToggleable
+    icon:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80silver.rsi
+      state: laserlight
+    iconActive:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80silver.rsi
+      state: laserlight-on
+    actionName: Activate Laser-Light Module
+    actionDesc: Can be toggled on and off. A better light source than standard M3 pattern armor lights.
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: 0.05
+    - conditions:
+        wieldedOnly: true
+      recoilFlat: -1
+      scatterFlat: -2
+    - conditions:
+        unwieldedOnly: true
+      scatterFlat: -4
+
+- type: entity
+  parent: RMCAttachmentFlashlightGrip
+  id: RMCAttachmentPlatinumLaserLightModule
+  name: MK80 Platinum laser-light module
+  description: A Laser-Light module for the MK80 Service Pistol which is currently undergoing limited field testing as part of the marines' next generation pistol program. All MK80 pistols come equipped with the module.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80platinum.rsi
+    layers:
+    - state: laserlight
+    - state: laserlight-on
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: Tag
+    tags:
+    - RMCAttachmentUnderbarrel
+    - RMCAttachmentLaserLightModule
+    - Flashlight
+  - type: AttachableToggleable
+    icon:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80platinum.rsi
+      state: laserlight
+    iconActive:
+      sprite: _RMC14/Objects/Weapons/Guns/Attachments/mk80platinum.rsi
+      state: laserlight-on
+    actionName: Activate Laser-Light Module
+    actionDesc: Can be toggled on and off. A better light source than standard M3 pattern armor lights.
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - accuracyAddMult: 0.05
+    - conditions:
+        wieldedOnly: true
+      recoilFlat: -1
+      scatterFlat: -2
+    - conditions:
+        unwieldedOnly: true
+      scatterFlat: -4
+
 - type: Tag
   id: RMCAttachmentUnderbarrel
 
