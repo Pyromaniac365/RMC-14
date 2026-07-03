@@ -18,6 +18,9 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Components;
+using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -95,20 +98,36 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
             return;
         }
 
+
+
+        var isGun = TryComp<GunComponent>(handHeldItem, out _);
+
+        var executeTime = executionComponent.BattleExecuteTimeSeconds *
+            (TryComp<GunComponent>(handHeldItem, out _) ? 1f : 3f);
         var ev = new RMCBattleExecuteEvent(GetNetEntity(user), GetNetEntity(target), executionComponent.Damage);
         var doAfterArgs = new DoAfterArgs(EntityManager,
             user,
-            executionComponent.BattleExecuteTimeSeconds,
+            executeTime,
             ev,
             target,
             target,
             handHeldItem);
         _doAfter.TryStartDoAfter(doAfterArgs);
 
-        var selfMsg = Loc.GetString("rmc-execute-start-self", ("target", Name(target)), ("gun", Name(handHeldItem)));
-        var othersMsg = Loc.GetString("rmc-execute-start-others", ("user", Name(user)), ("target", Name(target)), ("gun", Name(handHeldItem)));
-        _popup.PopupPredicted(selfMsg, othersMsg, user, user, PopupType.LargeCaution);
-    }
+        var selfMsg = Loc.GetString(
+            isGun ? "rmc-execute-start-self" : "rmc-execute-start-melee-self",
+            ("target", Name(target)),
+            ("melee", Name(handHeldItem)),
+            ("gun", Name(handHeldItem)));
+
+        var othersMsg = Loc.GetString(
+            isGun ? "rmc-execute-start-others" : "rmc-execute-start-melee-others",
+            ("user", Name(user)),
+            ("target", Name(target)),
+            ("melee", Name(handHeldItem)),
+            ("gun", Name(handHeldItem)));
+                _popup.PopupPredicted(selfMsg, othersMsg, user, user, PopupType.LargeCaution);
+            }
 
     private void ExecuteDoAfter(Entity<MarineComponent> ent, ref RMCBattleExecuteEvent args)
     {
@@ -130,56 +149,74 @@ public sealed class RMCBattleExecuteSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!Exists(args.Used) || !TryComp<GunComponent>(args.Used, out var gun))
+        // Below is utilized and dependent on the gunComponent
+        GunComponent? gun = null;
+        MeleeWeaponComponent? melee = null;
+
+        var isGun = TryComp<GunComponent>(args.Used, out gun);
+        var isMelee = TryComp<MeleeWeaponComponent>(args.Used, out melee);
+
+        if (!Exists(args.Used) || (!isGun && !isMelee))
             return;
 
-        var ammo = new List<(EntityUid? Entity, IShootable Shootable)>();
-        var ev = new TakeAmmoEvent(1, ammo, Transform(user).Coordinates, user);
-        RaiseLocalEvent(args.Used.Value, ev);
-
-        if (ev.Ammo.Count == 0)
+        if (gun != null)
         {
+            var ammo = new List<(EntityUid? Entity, IShootable Shootable)>();
+            var ev = new TakeAmmoEvent(1, ammo, Transform(user).Coordinates, user);
+            RaiseLocalEvent(args.Used.Value, ev);
+
+            if (ev.Ammo.Count == 0)
+            {
+                _admin.Add(LogType.RMCExecution,
+                    LogImpact.High,
+                    $"{ToPrettyString(user)}'s Execution of {ToPrettyString(target)} was cancelled from lack of ammo.");
+                _audio.PlayPredicted(gun.SoundEmpty, args.Used.Value, user);
+                return;
+            }
+
+            foreach (var (bullet, _) in ev.Ammo)
+            {
+                Del(bullet);
+            }
+
             _admin.Add(LogType.RMCExecution,
                 LogImpact.High,
-                $"{ToPrettyString(user)}'s Execution of {ToPrettyString(target)} was cancelled from lack of ammo.");
-            _audio.PlayPredicted(gun.SoundEmpty, args.Used.Value, user);
-            return;
-        }
+                $"{ToPrettyString(user)}'s Execution of {ToPrettyString(target)} Succeeded!");
 
-        foreach (var (bullet, _) in ev.Ammo)
-        {
-            Del(bullet);
-        }
-
-        _admin.Add(LogType.RMCExecution,
-            LogImpact.High,
-            $"{ToPrettyString(user)}'s Execution of {ToPrettyString(target)} Succeeded!");
-
-        if (TryComp<WieldableComponent>(args.Used.Value, out var wieldable))
-        {
-            if (!wieldable.Wielded)
+            if (TryComp<WieldableComponent>(args.Used.Value, out var wieldable))
             {
-                var recoilScalar = gun.CameraRecoilScalarModified;
+                if (!wieldable.Wielded)
+                {
+                    var recoilScalar = gun.CameraRecoilScalarModified;
 
-                var userCoords = _transform.GetWorldPosition(user);
-                var targetCoords = _transform.GetWorldPosition(target);
-                var direction = targetCoords - userCoords;
+                    var userCoords = _transform.GetWorldPosition(user);
+                    var targetCoords = _transform.GetWorldPosition(target);
+                    var direction = targetCoords - userCoords;
 
-                if (direction == Vector2.Zero)
-                    direction = new Vector2(0, -1);
+                    if (direction == Vector2.Zero)
+                        direction = new Vector2(0, -1);
 
-                var kick = direction.Normalized() * recoilScalar;
-                _cameraRecoil.KickCamera(user, kick);
+                    var kick = direction.Normalized() * recoilScalar;
+                    _cameraRecoil.KickCamera(user, kick);
+                }
             }
         }
+        // Isolated
 
         //ToDo RMC14 Make this head damage.
         _damageable.TryChangeDamage(target, args.BattleExecuteDamage, true);
         _mobState.ChangeMobState(target, MobState.Dead);
         _unrevivable.MakeUnrevivable(target);
 
-        _audio.PlayPredicted(gun.SoundGunshotModified, args.Used.Value, user);
+        // Below is utilizing the relevant gun audio
+        if (gun != null){
+            _audio.PlayPredicted(gun.SoundGunshotModified, args.Used.Value, user);
+        }
 
+        if (melee != null && gun == null){
+            _audio.PlayPredicted(melee.HitSound, args.Used.Value, user);
+        }
+        // Isolated
         var popupMessage = $"{Name(target)} WAS EXECUTED BY {Name(user)}!";
         _popup.PopupPredicted(popupMessage, target, user, PopupType.LargeCaution);
 

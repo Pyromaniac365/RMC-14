@@ -328,6 +328,7 @@
     size: Large
   - type: RMCLoreExaminable
     content: rmc-lore-examinable-ceremonial-sabre
+  - type: RMCBattleExecute
   - type: Tag
     tags:
     - RMCCeremonialSword
